@@ -25,6 +25,27 @@ authentication, complete CRUD operations, and a decoupled REST API architecture.
 
 ## 📁 Project Structure
 
+TodoApp/
+│
+├── BackendApp/          # REST API Server (port 8000)
+│   ├── todo_api/
+│   │   ├── models.py       # TaskModel
+│   │   ├── serializer.py   # TaskSerializer
+│   │   ├── views.py        # API Views
+│   │   └── urls.py         # API Routes
+│   └── manage.py
+│
+└── FrontendApp/         # Frontend Server (port 1020)
+├── base/
+│   ├── views.py        # Task Views
+│   └── urls.py         # Task Routes
+├── authen/
+│   ├── views.py        # Auth Views
+│   └── urls.py         # Auth Routes
+├── templates/          # HTML Templates
+└── manage.py
+
+
 
 ## ⚙️ Installation & Setup
 
