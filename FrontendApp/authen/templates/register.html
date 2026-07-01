@@ -1,0 +1,65 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="register-wrapper">
+    <div class="register-card">
+
+        <div class="register-header">
+            <div class="register-logo">✅ <span>TODO</span></div>
+            <h2>Create Account</h2>
+            <p>Start organizing your tasks today</p>
+        </div>
+
+        {% if messages %}
+            <div class="message-box">
+                {% for i in messages %}
+                    <p>⚠️ {{ i }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <div class="field-row">
+                <div class="field">
+                    <label for="">First Name</label>
+                    <input type="text" name="fname" placeholder="John">
+                </div>
+                <div class="field">
+                    <label for="">Last Name</label>
+                    <input type="text" name="lname" placeholder="Doe">
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="">Username</label>
+                <input type="text" name="uname" placeholder="Enter your username">
+            </div>
+
+            <div class="field">
+                <label for="">Email</label>
+                <input type="email" name="email" placeholder="john@example.com">
+            </div>
+
+            <div class="field">
+                <label for="">Password</label>
+                <input type="password" name="pasw" placeholder="Create a strong password">
+            </div>
+
+            <button type="submit">Create Account</button>
+
+            <p class="login-row">
+                Already have an account? <a href="{% url 'login_' %}">Login</a>
+            </p>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

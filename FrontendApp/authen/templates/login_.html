@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/login_.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="login-wrapper">
+    <div class="login-card">
+
+        <div class="login-header">
+            <div class="login-logo">✅ <span>TODO</span></div>
+            <h2>Welcome Back</h2>
+            <p>Sign in to manage your tasks</p>
+        </div>
+
+        {% if messages %}
+            <div class="message-box">
+                {% for i in messages %}
+                    <p>⚠️ {{ i }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <div class="field">
+                <label for="">Username</label>
+                <input type="text" name="uname" placeholder="Enter your username">
+            </div>
+
+            <div class="field">
+                <label for="">Password</label>
+                <input type="password" name="pasw" placeholder="Enter your password">
+            </div>
+
+            <button type="submit">Sign In</button>
+
+            <p class="register-row">
+                Don't have an account? <a href="{% url 'register' %}">Register</a>
+            </p>
+        </form>
+
+        <a href="{% url 'forget_pasw' %}" class="forgot-link">Forgot Password?</a>
+
+    </div>
+</div>
+{% endblock %}

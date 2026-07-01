@@ -1,0 +1,115 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="about-wrapper">
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-logo">✅ <span>TODO</span></div>
+        <h1>Your Simple Task Manager</h1>
+        <p>Stay organized, focused, and in control of your day — one task at a time.</p>
+    </div>
+
+    <!-- Features Section -->
+    <div class="section-title">
+        <h2>What You Can Do</h2>
+        <p>Everything you need to manage your tasks efficiently</p>
+    </div>
+
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">📝</div>
+            <h3>Create Tasks</h3>
+            <p>Quickly add tasks with a title and description to capture everything on your mind.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">✅</div>
+            <h3>Mark Complete</h3>
+            <p>Mark tasks as done individually or complete all at once to stay on top of your goals.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">✏️</div>
+            <h3>Edit Anytime</h3>
+            <p>Update your task title or description whenever your plans change.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🗑️</div>
+            <h3>Trash & Restore</h3>
+            <p>Deleted tasks go to trash first. Restore them anytime or delete forever.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔐</div>
+            <h3>Secure Auth</h3>
+            <p>Your account is protected with secure login, registration and password reset.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">👤</div>
+            <h3>Your Profile</h3>
+            <p>View and update your personal details and reset your password anytime.</p>
+        </div>
+    </div>
+
+    <!-- How it works -->
+    <div class="section-title">
+        <h2>How It Works</h2>
+        <p>Get started in just three simple steps</p>
+    </div>
+
+    <div class="steps-row">
+        <div class="step-card">
+            <div class="step-number">01</div>
+            <h3>Create an Account</h3>
+            <p>Register with your name, username and email to get started for free.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card">
+            <div class="step-number">02</div>
+            <h3>Add Your Tasks</h3>
+            <p>Add tasks with a title and description — as many as you need.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step-card">
+            <div class="step-number">03</div>
+            <h3>Get Things Done</h3>
+            <p>Complete tasks, track progress and stay on top of your day.</p>
+        </div>
+    </div>
+
+    <!-- Built with -->
+    <div class="built-section">
+        <div class="section-title">
+            <h2>Built With</h2>
+            <p>Powered by modern technologies</p>
+        </div>
+        <div class="tech-row">
+            <div class="tech-badge">🐍 Python</div>
+            <div class="tech-badge">🌐 Django</div>
+            <div class="tech-badge">🗄️ SQLite</div>
+            <div class="tech-badge">🎨 CSS3</div>
+            <div class="tech-badge">📄 HTML5</div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+        <h2>Ready to get organized?</h2>
+        <p>Join now and start managing your tasks like a pro.</p>
+        <div class="cta-buttons">
+            {% if user.is_authenticated %}
+                <a href="{% url 'home' %}" class="btn-primary">Go to My Tasks</a>
+                <a href="{% url 'add' %}" class="btn-outline">+ Add Task</a>
+            {% else %}
+                <a href="{% url 'register' %}" class="btn-primary">Get Started Free</a>
+                <a href="{% url 'login_' %}" class="btn-outline">Login</a>
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+{% endblock %}

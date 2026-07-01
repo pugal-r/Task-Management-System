@@ -1,0 +1,57 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/add.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="add-page">
+  <div class="add-container">
+
+    <!-- Left decorative panel -->
+    <div class="left-panel">
+      <div class="left-logo">✅ <span>TODO</span></div>
+      <div class="left-main">
+        <h2>Plan it.<br>Do it.<br>Done.</h2>
+        <p>Add a new task and take one step closer to your goals.</p>
+        <div class="tips">
+          <div class="tip"><div class="tip-dot"></div>Keep titles short and clear</div>
+          <div class="tip"><div class="tip-dot"></div>Add details in the description</div>
+          <div class="tip"><div class="tip-dot"></div>Complete tasks to track progress</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right form panel -->
+    <div class="right-panel">
+      <h3>New Task</h3>
+      <p>Fill in the details below to add a task</p>
+
+      <form action="" method="POST">
+        {% csrf_token %}
+
+        <div class="field">
+          <label for="">Title</label>
+          <input type="text" name="title" placeholder="e.g. Buy groceries">
+          <div class="char-hint">Keep it short and actionable</div>
+        </div>
+
+        <div class="field">
+          <label for="">Description</label>
+          <input type="text" name="desc" placeholder="Add more details...">
+          <div class="char-hint">Optional — but helps you remember</div>
+        </div>
+
+        <div class="form-footer">
+          <a href="{% url 'home' %}" class="btn-back">← Back</a>
+          <button type="submit">+ Add Task</button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

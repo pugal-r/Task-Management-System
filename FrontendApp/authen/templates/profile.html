@@ -1,0 +1,69 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="profile-wrapper">
+
+    <div class="profile-card">
+
+        <!-- Avatar & Name -->
+        <div class="profile-top">
+            <div class="avatar">
+                {{ request.user.first_name|first|upper }}{{ request.user.last_name|first|upper }}
+            </div>
+            <h2 class="profile-name">{{ request.user.first_name }} {{ request.user.last_name }}</h2>
+            <p class="profile-username">@{{ request.user.username }}</p>
+            <span class="verify-badge">
+                {% if request.user.is_authenticated %}
+                    ✅ Verified
+                {% else %}
+                    ❌ Not Verified
+                {% endif %}
+            </span>
+        </div>
+
+        <!-- Info rows -->
+        <div class="profile-info">
+
+            <div class="info-row">
+                <div class="info-label">👤 First Name</div>
+                <div class="info-value">{{ request.user.first_name }}</div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-label">👤 Last Name</div>
+                <div class="info-value">{{ request.user.last_name }}</div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-label">🔖 Username</div>
+                <div class="info-value">{{ request.user.username }}</div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-label">📧 Email</div>
+                <div class="info-value">{{ request.user.email }}</div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-label">🔒 Password</div>
+                <div class="info-value password">{{ request.user.password }}</div>
+            </div>
+
+        </div>
+
+        <!-- Action buttons -->
+        <div class="profile-actions">
+            <a href="{% url 'updatep' %}" class="btn-update">✏️ Update Profile</a>
+            <a href="{% url 'reset_pasw' %}" class="btn-reset">🔑 Reset Password</a>
+            <a href="{% url 'logout_' %}" class="btn-logout">🚪 Logout</a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

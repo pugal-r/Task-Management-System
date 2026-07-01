@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+
+{% block css %}
+{% endblock %}
+
+{% block content %}
+    <h2>Forget Page</h2> 
+
+    {% if messages %}
+        {% for i in messages %}
+            <h2> {{i}}</h2>
+        {% endfor %}
+    {% endif %}
+
+
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        {% if new %}
+            <label for="">New Password:</label>
+            <input type="password" name="new_pasw"> <br>
+        
+        {% else %}
+            <label for="">Username:</label>
+            <input type="text" name="uname"> <br>
+
+        {% endif %}
+        
+        <button type="submit">Submit</button>
+
+    </form>
+{% endblock %}

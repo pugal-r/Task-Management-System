@@ -1,0 +1,49 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/trash.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="trash-wrapper">
+
+    <div class="trash-header">
+        <div>
+            <h2>🗑️ Trash</h2>
+            <p>Items here will be permanently deleted.</p>
+        </div>
+        <div class="header-actions">
+            <a href="{% url 'restore_all' %}" class="btn-restore-all">♻️ Restore All</a>
+            <a href="{% url 'delete_all_trash' %}" class="btn-delete-all">🗑️ Delete All</a>
+        </div>
+    </div>
+
+    <div class="task-list">
+        {% for i in data %}
+        <div class="task-card">
+            <div class="task-left">
+                <div class="trash-icon">🗑️</div>
+                <div class="task-info">
+                    <h3 class="task-title">{{ i.title }}</h3>
+                    <p class="task-desc">{{ i.desc }}</p>
+                </div>
+            </div>
+            <div class="task-actions">
+                <a href="{% url 'restore' i.id %}" class="btn-restore">♻️ Restore</a>
+                <a href="{% url 'delete_forever' i.id %}" class="btn-delete">🗑️ Delete</a>
+            </div>
+        </div>
+        {% empty %}
+        <div class="empty-state">
+            <div class="empty-icon">✨</div>
+            <h3>Trash is Empty</h3>
+            <p>Deleted tasks will appear here before being removed forever.</p>
+            <a href="{% url 'home' %}" class="btn-go-home">← Back to Tasks</a>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

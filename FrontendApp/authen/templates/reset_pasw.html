@@ -1,0 +1,73 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/reset_password.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="reset-wrapper">
+    <div class="reset-card">
+
+        <div class="reset-header">
+            <div class="reset-icon">🔑</div>
+            <h2>Reset Password</h2>
+            <p>
+                {% if new %}
+                    Enter your new password below
+                {% else %}
+                    Verify your old password to continue
+                {% endif %}
+            </p>
+        </div>
+
+        {% if messages %}
+            <div class="message-box">
+                {% for i in messages %}
+                    <p>⚠️ {{ i }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            {% if new %}
+
+                <div class="user-badge">
+                    👤 {{ request.user }}
+                </div>
+
+                <div class="field">
+                    <label for="">New Password</label>
+                    <input type="password" name="new_pasw" placeholder="Enter your new password">
+                    <div class="field-hint">Use at least 8 characters with letters and numbers</div>
+                </div>
+
+            {% else %}
+
+                <div class="field">
+                    <label for="">Old Password</label>
+                    <input type="password" name="old_pasw" placeholder="Enter your current password">
+                    <div class="field-hint">Enter your existing password to verify it's you</div>
+                </div>
+
+            {% endif %}
+
+            <div class="form-footer">
+                <a href="{% url 'profile' %}" class="btn-cancel">← Cancel</a>
+                <button type="submit">
+                    {% if new %}
+                        Set New Password
+                    {% else %}
+                        Verify & Continue
+                    {% endif %}
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+{% endblock %}

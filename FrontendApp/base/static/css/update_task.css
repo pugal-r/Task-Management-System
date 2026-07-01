@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+}
+
+body {
+  background: #f4f5fb;
+  min-height: 100vh;
+}
+
+/* Page wrapper */
+.update-wrapper {
+  max-width: 520px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
+/* Card */
+.update-card {
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1.5px solid #e5e7eb;
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.08);
+}
+
+/* Header */
+.update-header {
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+  padding: 2.5rem 2rem 2rem;
+  text-align: center;
+}
+
+.update-icon {
+  font-size: 40px;
+  margin-bottom: 1rem;
+}
+
+.update-header h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.update-header p {
+  font-size: 13.5px;
+  color: rgba(199, 210, 254, 0.8);
+}
+
+/* Form body */
+form {
+  padding: 2rem;
+}
+
+/* Field */
+.field {
+  margin-bottom: 1.3rem;
+}
+
+.field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.field input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #111827;
+  background: #f9fafb;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.field input:focus {
+  border-color: #6366f1;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.field input::placeholder {
+  color: #d1d5db;
+}
+
+/* Current value hint */
+.field .current-value {
+  font-size: 11.5px;
+  color: #9ca3af;
+  margin-top: 5px;
+}
+
+.field .current-value span {
+  color: #6366f1;
+  font-weight: 600;
+}
+
+/* Footer */
+.form-footer {
+  display: flex;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.btn-cancel {
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #6b7280;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 1.5px solid #e5e7eb;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn-cancel:hover {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+button[type="submit"] {
+  flex: 1;
+  padding: 12px;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+button[type="submit"]:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+}

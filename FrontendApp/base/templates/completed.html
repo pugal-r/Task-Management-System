@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/completed.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="completed-wrapper">
+
+    <div class="completed-header">
+        <div>
+            <h2>Completed Tasks</h2>
+            <p>Great work! Here's what you've accomplished.</p>
+        </div>
+        <a href="{% url 'completed_delete_all' %}" class="btn-delete-all">🗑️ Delete All</a>
+    </div>
+
+    <div class="task-list">
+        {% for i in data %}
+        <div class="task-card">
+            <div class="task-left">
+                <div class="check-icon">✅</div>
+                <div class="task-info">
+                    <h3 class="task-title">{{ i.title }}</h3>
+                    <p class="task-desc">{{ i.desc }}</p>
+                </div>
+            </div>
+            <a href="{% url 'completed_delete' i.id %}" class="btn-delete">🗑️ Delete</a>
+        </div>
+        {% empty %}
+        <div class="empty-state">
+            <div class="empty-icon">🎯</div>
+            <h3>No Completed Tasks Yet</h3>
+            <p>Start completing tasks and they'll show up here.</p>
+            <a href="{% url 'home' %}" class="btn-go-home">← Go to Tasks</a>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

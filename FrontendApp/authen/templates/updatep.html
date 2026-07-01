@@ -1,0 +1,53 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/update_profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="update-wrapper">
+    <div class="update-card">
+
+        <div class="update-header">
+            <div class="update-avatar">
+                {{ data.first_name|first|upper }}{{ data.last_name|first|upper }}
+            </div>
+            <h2>Update Profile</h2>
+            <p>Edit your personal information below</p>
+        </div>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <div class="field-row">
+                <div class="field">
+                    <label for="">First Name</label>
+                    <input type="text" name="fname" value="{{ data.first_name }}" placeholder="First name">
+                </div>
+                <div class="field">
+                    <label for="">Last Name</label>
+                    <input type="text" name="lname" value="{{ data.last_name }}" placeholder="Last name">
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="">Username</label>
+                <input type="text" name="uname" value="{{ data.username }}" placeholder="Username">
+            </div>
+
+            <div class="field">
+                <label for="">Email</label>
+                <input type="email" name="email" value="{{ data.email }}" placeholder="Email address">
+            </div>
+
+            <div class="form-footer">
+                <a href="{% url 'profile' %}" class="btn-cancel">← Cancel</a>
+                <button type="submit">Save Changes</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

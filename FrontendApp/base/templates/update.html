@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/update_task.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="update-wrapper">
+    <div class="update-card">
+
+        <div class="update-header">
+            <div class="update-icon">✏️</div>
+            <h2>Update Task</h2>
+            <p>Edit your task details below</p>
+        </div>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <div class="field">
+                <label for="">Title</label>
+                <input type="text" name="title" value="{{ data.title }}" placeholder="Task title">
+            </div>
+
+            <div class="field">
+                <label for="">Description</label>
+                <input type="text" name="desc" value="{{ data.desc }}" placeholder="Task description">
+            </div>
+
+            <div class="form-footer">
+                <a href="{% url 'home' %}" class="btn-cancel">← Cancel</a>
+                <button type="submit">Save Changes</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endblock %}
